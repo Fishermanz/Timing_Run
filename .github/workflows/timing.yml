@@ -1,0 +1,22 @@
+name: Hello World
+on:
+  # IMPORTANT: Set cron job in UTC timezone
+  push:  # 为了调试方便，修改代码之后push上去即可以看到效果
+    paths: # 指定只有哪些文件修改了才会触发该工作流程
+      - src/**
+      - .github/workflows/timing.yml
+  schedule:
+    - cron:  '0 1 * * *'
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.0'
+      - run: pip install requests
+      - run: pip install selenium
+      - run: python src/main.py
+      
