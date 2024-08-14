@@ -26,21 +26,18 @@ api = config.api
 # UA库
 UA = config.UA
 
-option = webdriver.EdgeOptions()
+option = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument("--proxy-server=http://202.20.16.82:10152")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_experimental_option('useAutomationExtension', False)
 
 if __name__ == "__main__":
 
     for epoch in range(epochs):
-        
-        # 通过API链接爬取IP，这里根据自己的情况进行修改
-        # ip = requests.get(api).text
-        ip = '112.65.156.56'
-        # 修改IP
-        option.add_argument('--proxy-server={}'.format(ip))
 
-        driver = webdriver.Edge(options=option)
+        driver = webdriver.Chrome(options=option)
         # 修改User-Agent
         num = random.randint(0, 2)
         driver.execute_cdp_cmd("Network.setUserAgentOverride", {"userAgent": UA[num]})
