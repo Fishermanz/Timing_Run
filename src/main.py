@@ -30,6 +30,7 @@ option = webdriver.ChromeOptions()
 option.add_argument('--headless')
 option.add_argument('--disable-gpu')
 option.add_argument("--proxy-server=http://202.20.16.82:10152")
+option.add_argument("--window-size=1920x1080")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_experimental_option('useAutomationExtension', False)
 
@@ -41,6 +42,7 @@ if __name__ == "__main__":
         # 修改User-Agent
         num = random.randint(0, 2)
         driver.execute_cdp_cmd("Network.setUserAgentOverride", {"userAgent": UA[num]})
+        option.add_argument('user-agent={0}'.format(UA[num]))
         # 将webdriver属性置为undefined
         driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument',
                                {'source': 'Object.defineProperty(navigator, "webdriver", {get: () => undefined})'})
