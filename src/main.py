@@ -27,7 +27,7 @@ api = config.api
 UA = config.UA
 
 option = webdriver.ChromeOptions()
-# option.add_argument('--headless')
+option.add_argument('--headless')
 option.add_argument('--disable-gpu')
 option.add_argument("--proxy-server=http://202.20.16.82:10152")
 option.add_argument("--window-size=1920x1080")
@@ -70,7 +70,7 @@ if __name__ == "__main__":
                 time.sleep(1)
                 
         time.sleep(1)
-        submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
+        submit_button = driver.find_element(By.CLASS_NAME, "submitbtn.mainBgColor") # (By.XPATH, '//*[@id="ctlNext"]')
         submit_button.click()
         time.sleep(1)
 
