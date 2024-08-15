@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
         driver = webdriver.Chrome(options=option)
         # 修改User-Agent
-        num = random.randint(0, 2)
+        num = 0
         driver.execute_cdp_cmd("Network.setUserAgentOverride", {"userAgent": UA[num]})
         option.add_argument('user-agent={0}'.format(UA[num]))
         # 将webdriver属性置为undefined
@@ -53,7 +53,6 @@ if __name__ == "__main__":
         index = 1
         # 获取题目数量
         questions = driver.find_elements(By.CLASS_NAME, "field.ui-field-contain")
-        print(questions)
         for i in range(1, len(questions) + 1):
             xpath = '//*[@id="div{}"]'.format(i)
             question = driver.find_element(By.XPATH, xpath)

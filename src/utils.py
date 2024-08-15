@@ -29,7 +29,8 @@ def preprocess_prob(prob, length):
 
 # 单选 type=3
 def single_choice(driver, id, prob, idx):
-    xpath = '//*[@id="div{}"]/div[2]/div'.format(id)
+    # xpath = '//*[@id="div{}"]/div[2]/div'.format(id)
+    xpath = '//*[@id="q{}"]'.format(id)
     answers = driver.find_elements(By.XPATH, xpath)
     # 如果没有传入比例，默认为等比例
     p = preprocess_prob(prob.get(idx), len(answers))
