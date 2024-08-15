@@ -3,8 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
-import requests
-import utils
+# import requests
+# import utils
 import config
 import sys
 
@@ -58,7 +58,6 @@ if __name__ == "__main__":
             # question = driver.find_element(By.XPATH, xpath)
             time.sleep(1)
             if i == 1:
-                index = utils.single_choice(driver, i, prob, index)
                 xpath = '//*[@id="div1"]/div[2]/div[1]/span/a'
                 ActionChains(driver).move_to_element(driver.find_element(By.XPATH, xpath)).click().perform()
             elif i == 2:
@@ -76,6 +75,7 @@ if __name__ == "__main__":
                 
         time.sleep(1)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
+
         submit_button.click()
         time.sleep(1)
 

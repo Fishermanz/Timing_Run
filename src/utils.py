@@ -2,7 +2,7 @@ import random
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
-import numpy
+# import numpy
 
 # 选取答案
 def select_answer(answerList):
