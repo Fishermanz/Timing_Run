@@ -69,32 +69,32 @@ if __name__ == "__main__":
         submit_button.click()
         time.sleep(1)
 
-        # 请点击智能验证码进行验证！
-        try:
-            comfirm = driver.find_element(By.XPATH, '//*[@id="layui-layer1"]/div[3]/a')
-            comfirm.click()
-            time.sleep(1)
-        except Exception as e:
-            print(e)
+        # # 请点击智能验证码进行验证！
+        # try:
+        #     comfirm = driver.find_element(By.XPATH, '//*[@id="layui-layer1"]/div[3]/a')
+        #     comfirm.click()
+        #     time.sleep(1)
+        # except Exception as e:
+        #     print(e)
 
-        # 点击按钮开始智能验证
-        try:
-            button = driver.find_element(By.XPATH, '//*[@id="SM_BTN_WRAPPER_1"]')
-            button.click()
-            time.sleep(0.5)
-        except Exception as e:
-            print(e)
+        # # 点击按钮开始智能验证
+        # try:
+        #     button = driver.find_element(By.XPATH, '//*[@id="SM_BTN_WRAPPER_1"]')
+        #     button.click()
+        #     time.sleep(0.5)
+        # except Exception as e:
+        #     print(e)
 
-        # 滑块验证
-        try:
-            slider = driver.find_element(By.XPATH, '//*[@id="nc_1__scale_text"]/span')
-            time.sleep(0.3)
-            if str(slider.text).startswith("请按住滑块，拖动到最右边"):
-                width = slider.size.get('width')
-                ActionChains(driver).drag_and_drop_by_offset(slider, width, 0).perform()
-                time.sleep(1)
-        except Exception as e:
-            print(e)
+        # # 滑块验证
+        # try:
+        #     slider = driver.find_element(By.XPATH, '//*[@id="nc_1__scale_text"]/span')
+        #     time.sleep(0.3)
+        #     if str(slider.text).startswith("请按住滑块，拖动到最右边"):
+        #         width = slider.size.get('width')
+        #         ActionChains(driver).drag_and_drop_by_offset(slider, width, 0).perform()
+        #         time.sleep(1)
+        # except Exception as e:
+        #     print(e)
 
         time.sleep(3)
         driver.quit()
