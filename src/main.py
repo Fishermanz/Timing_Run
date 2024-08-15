@@ -91,10 +91,11 @@ if __name__ == "__main__":
 
         print("当前时间:", current_time)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        schedule_time = "8:32"  # 指定时间，格式为HH:MM
+        schedule_time = "08:35"  # 指定时间，格式为HH:MM
         schedule.every().day.at(schedule_time).do(task, submit_button)
         while True:
             schedule.run_pending()
+            sleep(1)
         # submit_button.click()
         time.sleep(1)
 
