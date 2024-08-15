@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
+import datetime
 # import requests
 # import utils
 import schedule
@@ -34,6 +35,10 @@ option.add_argument('--disable-gpu')
 option.add_argument("--window-size=1920x1080")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_experimental_option('useAutomationExtension', False)
+
+def task(btn):
+    btn.click()
+    sys.exit(0)
 
 if __name__ == "__main__":
 
@@ -75,6 +80,13 @@ if __name__ == "__main__":
                 driver.find_element(By.XPATH, xpath).send_keys("hh")
                 
         time.sleep(1)
+        # 获取当前时间
+        now = datetime.now()
+
+        # 格式化时间为字符串，格式为HH:MM
+        current_time = now.strftime("%H:%M")
+
+        print("当前时间:", current_time)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
         # schedule_time = "16:10"  # 指定时间，格式为HH:MM
         # schedule.every().day.at(schedule_time).do(submit_button.click)
