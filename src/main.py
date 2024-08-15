@@ -54,29 +54,25 @@ if __name__ == "__main__":
         # 获取题目数量
         questions = driver.find_elements(By.CLASS_NAME, "field.ui-field-contain")
         for i in range(1, len(questions) + 1):
-            xpath = '//*[@id="div{}"]'.format(i)
-            question = driver.find_element(By.XPATH, xpath)
+            # xpath = '//*[@id="div{}"]'.format(i)
+            # question = driver.find_element(By.XPATH, xpath)
+            time.sleep(1)
             if i == 1:
                 index = utils.single_choice(driver, i, prob, index)
                 xpath = '//*[@id="div1"]/div[2]/div[1]/span/a'
                 ActionChains(driver).move_to_element(driver.find_element(By.XPATH, xpath)).click().perform()
-                time.sleep(1)
             elif i == 2:
                 xpath = '//*[@id="q{}"]'.format(i)
                 driver.find_element(By.XPATH, xpath).send_keys("hh")
-                time.sleep(1)
             elif i == 3:
                 xpath = '//*[@id="q{}"]'.format(i)
                 driver.find_element(By.XPATH, xpath).send_keys("hh")
-                time.sleep(1)
             elif i == 4:
                 xpath = '//*[@id="q{}"]'.format(i)
                 driver.find_element(By.XPATH, xpath).send_keys("hh")
-                time.sleep(1)
             elif i == 5:
                 xpath = '//*[@id="q{}"]'.format(i)
                 driver.find_element(By.XPATH, xpath).send_keys("hh")
-                time.sleep(1)
                 
         time.sleep(1)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
