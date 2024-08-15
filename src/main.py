@@ -95,7 +95,6 @@ if __name__ == "__main__":
         schedule.every().day.at(schedule_time).do(task, submit_button)
         while True:
             schedule.run_pending()
-            sleep(1)
         # submit_button.click()
         time.sleep(1)
 
