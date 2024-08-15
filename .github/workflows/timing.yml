@@ -17,5 +17,6 @@ jobs:
         with:
           python-version: '3.9.12'
       - run: pip install selenium
+      - run: pip install schedule
       - run: python src/main.py
       

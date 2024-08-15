@@ -1,10 +1,11 @@
-import random
+# import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
 # import requests
 # import utils
+import schedule
 import config
 import sys
 
@@ -75,8 +76,9 @@ if __name__ == "__main__":
                 
         time.sleep(1)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-
-        submit_button.click()
+        schedule_time = "16:00"  # 指定时间，格式为HH:MM
+        schedule.every().day.at(schedule_time).do(submit_button.click)
+        # submit_button.click()
         time.sleep(1)
 
         # # 请点击智能验证码进行验证！
