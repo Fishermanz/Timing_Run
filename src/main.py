@@ -36,15 +36,18 @@ option.add_argument("--window-size=1920x1080")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_experimental_option('useAutomationExtension', False)
 
+driver = webdriver.Chrome(options=option)
 def task(btn):
     btn.click()
+    time.sleep(1)
+    driver.quit()
     sys.exit(0)
 
 if __name__ == "__main__":
 
     for epoch in range(epochs):
 
-        driver = webdriver.Chrome(options=option)
+        # driver = webdriver.Chrome(options=option)
         # 修改User-Agent
         num = 0
         driver.execute_cdp_cmd("Network.setUserAgentOverride", {"userAgent": UA[num]})
@@ -84,13 +87,13 @@ if __name__ == "__main__":
         now = datetime.now()
 
         # 格式化时间为字符串，格式为HH:MM
-        current_time = now.strftime("%H:%M")
+        current_time = now.strftime("%H:%M:%S")
 
         print("当前时间:", current_time)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        # schedule_time = "16:10"  # 指定时间，格式为HH:MM
-        # schedule.every().day.at(schedule_time).do(submit_button.click)
-        submit_button.click()
+        schedule_time = "16:29"  # 指定时间，格式为HH:MM
+        schedule.every().day.at(schedule_time).do(task, submit_button)
+        # submit_button.click()
         time.sleep(1)
 
         # # 请点击智能验证码进行验证！
