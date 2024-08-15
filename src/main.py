@@ -39,6 +39,7 @@ option.add_experimental_option('excludeSwitches', ['enable-automation'])
 option.add_experimental_option('useAutomationExtension', False)
 
 driver = webdriver.Chrome(options=option)
+
 def task(btn):
     btn.click()
     time.sleep(1)
@@ -100,7 +101,7 @@ if __name__ == "__main__":
         # print("当前时间:", current_time)
 
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        schedule_time = "11:00"  # 指定时间，格式为HH:MM
+        schedule_time = "01:00"  # 指定时间，格式为HH:MM
         schedule.every().day.at(schedule_time).do(task, submit_button)
         while True:
             schedule.run_pending()
