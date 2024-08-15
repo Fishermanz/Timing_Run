@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
 from datetime import datetime
-# import requests
+import requests
 # import utils
 import schedule
 import config
@@ -31,6 +31,8 @@ UA = config.UA
 option = webdriver.ChromeOptions()
 option.add_argument('--headless')
 option.add_argument('--disable-gpu')
+ip = requests.get(api).text
+option.add_argument(f'--proxy-server={ip}')
 # option.add_argument("--proxy-server=http://202.20.16.82:10152")
 option.add_argument("--window-size=1920x1080")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
@@ -91,7 +93,7 @@ if __name__ == "__main__":
 
         print("当前时间:", current_time)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        schedule_time = "09:20"  # 指定时间，格式为HH:MM
+        schedule_time = "10:00"  # 指定时间，格式为HH:MM
         schedule.every().day.at(schedule_time).do(task, submit_button)
         while True:
             schedule.run_pending()

@@ -6,7 +6,7 @@ on:
       - src/**
       - .github/workflows/timing.yml
   schedule:
-    - cron:  '15 9 * * 3,4'
+    - cron:  '40 9 * * 3,4'
 
 jobs:
   run-python-script:
@@ -17,6 +17,7 @@ jobs:
         with:
           python-version: '3.9.12'
       - run: pip install selenium
+      - run: pip install requests
       - run: pip install schedule
       - run: python src/main.py
       
