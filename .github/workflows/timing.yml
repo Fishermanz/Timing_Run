@@ -6,7 +6,7 @@ on:
       - src/**
       - .github/workflows/timing.yml
   schedule:
-    - cron:  '0 1 * * *'
+    - cron:  '45 8 * * 3,4'
 
 jobs:
   run-python-script:
