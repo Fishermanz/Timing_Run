@@ -53,6 +53,7 @@ if __name__ == "__main__":
         index = 1
         # 获取题目数量
         questions = driver.find_elements(By.CLASS_NAME, "field.ui-field-contain")
+        print(questions)
         for i in range(1, len(questions) + 1):
             xpath = '//*[@id="div{}"]'.format(i)
             question = driver.find_element(By.XPATH, xpath)
