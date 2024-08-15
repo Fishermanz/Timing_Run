@@ -58,9 +58,24 @@ if __name__ == "__main__":
             question = driver.find_element(By.XPATH, xpath)
             if i == 1:
                 index = utils.single_choice(driver, i, prob, index)
+                xpath = '//*[@id="div1"]/div[2]/div[1]/span/a'
+                ActionChains(driver).move_to_element(driver.find_element(By.XPATH, xpath)).click().perform()
                 time.sleep(1)
             elif i == 2:
-                index = utils.fill_blank(driver, i, answerList, index)
+                xpath = '//*[@id="q{}"]'.format(i)
+                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                time.sleep(1)
+            elif i == 3:
+                xpath = '//*[@id="q{}"]'.format(i)
+                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                time.sleep(1)
+            elif i == 4:
+                xpath = '//*[@id="q{}"]'.format(i)
+                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                time.sleep(1)
+            elif i == 5:
+                xpath = '//*[@id="q{}"]'.format(i)
+                driver.find_element(By.XPATH, xpath).send_keys("hh")
                 time.sleep(1)
                 
         time.sleep(1)
@@ -94,8 +109,6 @@ if __name__ == "__main__":
         #         time.sleep(1)
         # except Exception as e:
         #     print(e)
-
-        time.sleep(3)
         driver.quit()
         print("已完成{}份".format(epoch))
         
