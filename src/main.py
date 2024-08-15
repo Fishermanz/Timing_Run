@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
-import datetime
+from datetime import datetime
 # import requests
 # import utils
 import schedule
