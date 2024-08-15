@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 # import utils
 import schedule
@@ -73,27 +73,34 @@ if __name__ == "__main__":
                 ActionChains(driver).move_to_element(driver.find_element(By.XPATH, xpath)).click().perform()
             elif i == 2:
                 xpath = '//*[@id="q{}"]'.format(i)
-                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                driver.find_element(By.XPATH, xpath).send_keys("李明泽")
             elif i == 3:
                 xpath = '//*[@id="q{}"]'.format(i)
-                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                driver.find_element(By.XPATH, xpath).send_keys("华虹半导体无锡")
             elif i == 4:
                 xpath = '//*[@id="q{}"]'.format(i)
-                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                driver.find_element(By.XPATH, xpath).send_keys("15843805961")
             elif i == 5:
+                # 获取当前日期和时间
+                now = datetime.now()
+
+                # 计算3天后的日期
+                three_days_later = now + timedelta(days=3)
+
+                # 格式化日期为"24年8月18日13时-15时"
+                formatted_date = three_days_later.strftime("%y年{}月{}日13时-15时").format(three_days_later.month, three_days_later.day)
+                
                 xpath = '//*[@id="q{}"]'.format(i)
-                driver.find_element(By.XPATH, xpath).send_keys("hh")
+                driver.find_element(By.XPATH, xpath).send_keys(formatted_date)
                 
         time.sleep(1)
-        # 获取当前时间
-        now = datetime.now()
 
-        # 格式化时间为字符串，格式为HH:MM
-        current_time = now.strftime("%H:%M:%S")
+        # now = datetime.now()
+        # current_time = now.strftime("%H:%M:%S")
+        # print("当前时间:", current_time)
 
-        print("当前时间:", current_time)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        schedule_time = "10:00"  # 指定时间，格式为HH:MM
+        schedule_time = "10:20"  # 指定时间，格式为HH:MM
         schedule.every().day.at(schedule_time).do(task, submit_button)
         while True:
             schedule.run_pending()

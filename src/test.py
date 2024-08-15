@@ -1,12 +1,14 @@
 import schedule
 import sys
+from datetime import datetime, timedelta
 
-def task():
-    print("ok")
-    sys.exit(0)
+# 获取当前日期和时间
+now = datetime.now()
 
+# 计算3天后的日期
+three_days_later = now + timedelta(days=3)
 
-schedule_time = "16:21"
-schedule.every().day.at(schedule_time).do(task)
-while True:
-    schedule.run_pending()
+# 格式化日期为"24年8月18日13时-15时"
+formatted_date = three_days_later.strftime("%y年{}月{}日13时-15时").format(three_days_later.month, three_days_later.day)
+
+print(formatted_date)
