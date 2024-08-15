@@ -31,8 +31,8 @@ UA = config.UA
 option = webdriver.ChromeOptions()
 option.add_argument('--headless')
 option.add_argument('--disable-gpu')
-ip = requests.get(api).text
-option.add_argument(f'--proxy-server={ip}')
+# ip = requests.get(api).text
+# option.add_argument(f'--proxy-server={ip}')
 # option.add_argument("--proxy-server=http://202.20.16.82:10152")
 option.add_argument("--window-size=1920x1080")
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
