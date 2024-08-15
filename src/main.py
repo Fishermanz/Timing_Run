@@ -76,7 +76,7 @@ if __name__ == "__main__":
                 
         time.sleep(1)
         submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
-        schedule_time = "16:00"  # 指定时间，格式为HH:MM
+        schedule_time = "16:10"  # 指定时间，格式为HH:MM
         schedule.every().day.at(schedule_time).do(submit_button.click)
         # submit_button.click()
         time.sleep(1)
