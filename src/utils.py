@@ -12,7 +12,8 @@ def select_answer(answerList):
 
 # 简答题题 type=2
 def fill_blank(driver, id, answerList, idx):
-    xpath = '//*[@id="div{}"]/div[2]/textarea'.format(id)
+    # xpath = '//*[@id="div{}"]/div[2]/textarea'.format(id)
+    xpath = '//*[@id="q{}"]'.format(id)
     # text = select_answer(answerList)
     num = random.randint(0, len(answerList.get(idx))-1)
     text = answerList.get(idx)[num]
