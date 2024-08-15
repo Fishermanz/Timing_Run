@@ -67,8 +67,9 @@ if __name__ == "__main__":
                 time.sleep(1)
                 
         time.sleep(1)
-        submit_button = driver.find_element(By.CLASS_NAME, "submitbtn.mainBgColor") # (By.XPATH, '//*[@id="ctlNext"]')
-        submit_button.click()
+        # submit_button = driver.find_element(By.XPATH, '//*[@id="ctlNext"]')
+        # submit_button.click()
+        driver.find_element_by_css_selector('#ctlNext').click()
         time.sleep(1)
 
         # 请点击智能验证码进行验证！
