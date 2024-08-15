@@ -60,12 +60,9 @@ if __name__ == "__main__":
                 index = utils.single_choice(driver, i, prob, index)
                 time.sleep(1)
             elif i == 2:
-                index = utils.single_choice(driver, i, prob, index)
-                time.sleep(1)
-            elif i == 3:
                 index = utils.multi_choice(driver, i, prob, index)
                 time.sleep(1)
-            elif i == 4:
+            elif i == 3:
                 index = utils.fill_blank(driver, i, ['你好'], index)
                 time.sleep(1)
                 

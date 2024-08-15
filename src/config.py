@@ -1,4 +1,4 @@
-url = "https://www.wjx.cn/vm/rQyRgJN.aspx#"
+url = "https://www.wjx.cn/vm/rQyRgJN.aspx"
 epochs = 1
 # 题项比例，确保选项数量和数组长度一致
 prob = {
