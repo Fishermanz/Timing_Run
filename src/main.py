@@ -84,12 +84,13 @@ if __name__ == "__main__":
             elif i == 5:
                 # 获取当前日期和时间
                 now = datetime.now()
-
-                # 计算3天后的日期
-                three_days_later = now + timedelta(days=3)
-
-                # 格式化日期为"24年8月18日13时-15时"
-                formatted_date = three_days_later.strftime("%y年{}月{}日13时-15时").format(three_days_later.month, three_days_later.day)
+                
+                if now.hour < 1:
+                	next_1am = now.replace(hour=1, minute=0, second=0, microsecond=0)
+                else:
+                	next_1am = (now + timedelta(days=1)).replace(hour=1, minute=0, second=0, microsecond=0)
+                
+                formatted_date = next_1am.strftime("%y年{}月{}日13时-15时").format(next_1am.month, next_1am.day)
                 
                 xpath = '//*[@id="q{}"]'.format(i)
                 driver.find_element(By.XPATH, xpath).send_keys(formatted_date)
